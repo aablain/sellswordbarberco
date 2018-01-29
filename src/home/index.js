@@ -112,7 +112,7 @@ export default class Home extends Component<State> {
         </div>
         {this.state &&
           this.state.showBooking === true && (
-            <Booking appointments={this.state.appointments} endpoint={this.state.endpoint} period={this.state.bookingPeriod} />
+            <Booking appointments={this.state.appointments} barbers={this.state.barbers} endpoint={this.state.endpoint} period={this.state.bookingPeriod} />
           )}
         <Bio />
       </div>
@@ -131,7 +131,7 @@ export default class Home extends Component<State> {
             .ref()
             .child(`barbers`);
           barbersRef.on("value", snap => {
-            let barbers = { ...snap.val(), key: snap.key };
+            let barbers = { ...snap.val() };
             this.setState({ barbers });
           });
       }

@@ -2,17 +2,17 @@ import React, { Component } from "react";
 
 export default class Bio extends Component {
   render() {
-    return (
-      <section className="bio">
+    return <section className="bio">
         <div className="bio-about">
           <h3 className="bio-title">About</h3>
           <p className="bio-about-text">
-            Actually bespoke lomo kale chips pop-up green juice palo santo
-            hexagon sartorial small batch forage. Pork belly thundercats tote
-            bag, stumptown jean shorts fixie ethical prism etsy hammock sriracha
-            poutine craft beer quinoa. Fam quinoa fashion axe palo santo
-            cornhole PBR&B. Chillwave lo-fi everyday carry salvia messenger bag
-            shoreditch jianbing hot chicken.
+            Sellsword Barber Co is Inspired by the travels of Mark
+            Neddenriep and his wife. Matched with 7 years of traditional
+            barbing experience, Sellsword desires to be a community location
+            where customers feel respected by the skilled services and
+            environment within the walls of the shop. We are thankful for
+            your visit to the shop. Loyal customers are the life blood of a
+            good business. Cheers!
           </p>
         </div>
         <div className="bio-info">
@@ -21,7 +21,6 @@ export default class Bio extends Component {
           <h3 className="bio-title">Contact</h3>
           <p className="bio-info-text">Email goes here...</p>
         </div>
-      </section>
-    );
+      </section>;
   }
 }

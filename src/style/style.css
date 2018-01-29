@@ -136,6 +136,8 @@ body, .container {
     .home-booking-section .booking-button.is-selected {
       background-color: #FFFFFF;
       color: #181818; }
+    .home-booking-section .booking-button:hover {
+      cursor: pointer; }
 
 .bio {
   width: 100%;
