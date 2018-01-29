@@ -1,0 +1,222 @@
+// Variables
+$full-width: 100%;
+$half-width: 50%;
+$third-width: 33.33%;
+
+$dark: #181818;
+$light: #FFFFFF;
+$grey-dark: #646464;
+
+$font-one: 'Supermercado One', cursive;
+$font-two: 'Rock Salt', cursive;
+$font-three: 'Sedgwick Ave Display', cursive;
+$font-four: 'Romanesco', cursive;
+$font-normal: 'Open Sans', sans-serif;
+
+$small-screen: 900px;
+$tablet: 768px;
+$phone: 500px;
+$tiny-phone: 345px;
+
+@keyframes slideDown {
+    0% { height: 0px; max-height: 0px; min-height: 0px; color: transparent; }
+    100% { height: 250px; max-height: 250px; min-height: 0px; color: $light; }
+}
+
+* {
+    box-sizing: border-box;
+}
+p, h1, h3 {
+    margin: 0px;
+}
+
+body, .container {
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: initial !important;
+    font-family: $font-normal;
+    background-color: $dark;
+}
+
+.home {
+    width: $full-width;
+    max-width: $full-width;
+    min-width: $full-width;
+    .home-sections {
+        padding: 0px;
+        width: $full-width;
+        max-width: $full-width;
+        min-width: $full-width;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        @media screen and (max-width: $small-screen) {
+            padding: 35px 15px 0px;
+        }
+    }
+}
+
+.header {
+    width: $full-width;
+    max-width: $full-width;
+    min-width: $full-width;
+    height: 80vh;
+    min-height: 300px;
+    background-color: $dark;
+    color: $light;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-four;
+    font-size: 35px;
+    @media screen and (max-width: $phone) {
+        font-size: 25px;
+    }
+}
+
+.day-section {
+    padding: 90px 10px;
+    flex-basis: $third-width;
+    width: $third-width;
+    max-width: $third-width;
+    min-width: $third-width;
+    color: $light;
+    .day-section-title {
+        text-align: center;
+        margin: 0px;
+        font-size: 24px;
+    }
+    .day-section-subtitle {
+        padding-bottom: 15px;
+        text-align: center;
+        margin: 0px;
+        font-size: 22px;
+    }
+    .day-section-button {
+        padding: 6px 12px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95px;
+        max-width: 95px;
+        min-width: 95px;
+        text-align: center;
+        display: block;
+        border: 1px solid $dark;
+        color: $light;
+        transition: background-color 120ms ease-in-out;
+        &:hover {
+            cursor: pointer;
+            // background-color: $dark;
+            // color: $light;
+        }
+    }
+    &.open-for-booking {
+        background-color: $dark;
+        color: $light;
+        .day-section-button {
+            border-color: $light;
+            color: $light;
+            &:hover {
+                background-color: $light;
+                color: $dark;
+            }
+        }
+    }
+    &.cannot-book {
+        .day-section-button {
+            border: none;
+            width: 145px;
+            max-width: 145px;
+            min-width: 145px;
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+    @media screen and (max-width: $small-screen) {
+        padding: 35px 10px;
+        flex-basis: $full-width;
+        width: $full-width;
+        max-width: $full-width;
+        min-width: $full-width;
+    }
+    @media screen and (max-width: $tiny-phone) {
+        .day-section-title {
+            font-size: 18px;
+        }
+        .day-section-subtitle {
+            font-size: 16px;
+        }
+    }
+}
+
+.home-booking-section {
+    padding: 25px 10px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 250px;
+    color: $light;
+    background-color: $dark;
+    .booking-button {
+        padding: 6px 12px;
+        border: 2px solid $light;
+        border-radius: 4px;
+        color: $light;
+        .make-bold {
+            padding-left: 4px;
+            font-weight: bold;
+        }
+        &.is-selected {
+            background-color: $light;
+            color: $dark;
+        }
+    }
+}
+
+.bio {
+    width: $full-width;
+    max-width: $full-width;
+    min-width: $full-width;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: $light;
+    .bio-about {
+        padding: 10px 15px;
+        flex-basis: $half-width;
+        width: $half-width;
+        max-width: $half-width;
+        min-width: $half-width;
+        .bio-about-text {
+            font-size: 20px;
+        }
+    }
+    .bio-info {
+        padding: 10px 15px;
+        flex-basis: $half-width;
+        width: $half-width;
+        max-width: $half-width;
+        min-width: $half-width;
+        .bio-info-text {
+
+        }
+    }
+    .bio-title {
+        font-size: 30px;
+    }
+    @media screen and (max-width: $small-screen) {
+        .bio-about, .bio-info {
+            flex-basis: $full-width;
+            width: $full-width;
+            max-width: $full-width;
+            min-width: $full-width;
+        }
+        .bio-about {
+            padding-bottom: 35px;
+        }
+    }
+}
