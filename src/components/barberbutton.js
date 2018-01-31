@@ -38,6 +38,7 @@ export default class BarberButton extends Component<Props> {
         return (
             <span onClick={this.startBarberSelect} className={`booking-button${this.props.selected ? " is-selected" : ""}`}>
                 {this.props.barber.name}
+                {this.props.selected === true ? "(✔)" : ""}
             </span>
         );
     }

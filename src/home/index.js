@@ -44,7 +44,9 @@ export default class Home extends Component<State> {
       date: {},
       endpoint: '',
       showBooking: false,
-      bookingPeriod: 0
+      bookingPeriod: 0,
+      timeEnd: 9,
+      timeStart: 9,
     };
 
     this.connectFirebase = this.connectFirebase.bind(this);
@@ -58,6 +60,7 @@ export default class Home extends Component<State> {
     const date = {
       date: today,
       day: today.getDay(),
+      dayofmonth: today.getDate(),
       hour: today.getHours(),
       minute: today.getMinutes()
     };
@@ -112,7 +115,7 @@ export default class Home extends Component<State> {
         </div>
         {this.state &&
           this.state.showBooking === true && (
-            <Booking appointments={this.state.appointments} barbers={this.state.barbers} endpoint={this.state.endpoint} period={this.state.bookingPeriod} />
+            <Booking appointments={_.filter(this.state.appointments, app => app.startday === this.state.date.dayofmonth)} barbers={this.state.barbers} endpoint={this.state.endpoint} period={this.state.bookingPeriod} timeStart={this.state.timeStart} timeEnd={this.state.timeEnd} />
           )}
         <Bio />
       </div>
@@ -141,11 +144,23 @@ export default class Home extends Component<State> {
     let bookingPeriod = newBookingPeriod;
     let showBooking = true;
     if (typeof bookingPeriod === "number") {
+        let timeStart = 9;
+        let timeEnd = 9;
+        if (bookingPeriod === 1) {
+          timeStart = 9;
+          timeEnd = 12;
+        } else if (bookingPeriod === 2) {
+          timeStart = 13;
+          timeEnd = 15;
+        } else if (bookingPeriod === 3) {
+          timeStart = 15;
+          timeEnd = 18;
+        }
       if (this.state.bookingPeriod === bookingPeriod) {
         bookingPeriod = 0;
         showBooking = false;
       }
-      this.setState({ bookingPeriod, showBooking });
+      this.setState({ bookingPeriod, showBooking, timeStart, timeEnd });
     }
   }
 }

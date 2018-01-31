@@ -72,6 +72,12 @@ body, .container {
     align-items: center;
     font-family: $font-four;
     font-size: 35px;
+    .header-logo {
+        max-width: 100%;
+        max-width: 100%;
+        height: calc(100% - 111px);
+        max-height: calc(100% - 111px);
+    }
     @media screen and (max-width: $phone) {
         font-size: 25px;
     }
@@ -161,8 +167,42 @@ body, .container {
     min-height: 250px;
     color: $light;
     background-color: $dark;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .booking-section-header {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+    .booking-options {
+        flex-basis: 50%;
+        width: 50%;
+        max-width: 50%;
+        min-width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        .booking-options-title {
+            padding: 5px 5px 15px;
+            margin: 0px;
+            flex-basis: 100%;
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+            text-align: center;
+            font-size: 20px;
+        }
+        &.barbers {
+
+        }
+    }
     .booking-button {
         padding: 6px 12px;
+        margin: 0px 10px;
         border: 2px solid $light;
         border-radius: 4px;
         color: $light;
@@ -176,6 +216,33 @@ body, .container {
         }
         &:hover {
             cursor: pointer;
+        }
+    }
+}
+
+.booking-barber-schedule {
+    padding: 25px 10px;
+    width: 100%;
+    max-width: 100%;
+    .barber-schedule-appointments {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .barber-schedule-appointment {
+            padding: 6px 12px;
+            margin: 0px 10px 20px;
+            // flex-basis: 125px;
+            // width: 125px;
+            // max-width: 125px;
+            // min-width: 125px;
+            border: 2px solid $light;
+            border-radius: 4px;
+            &.chosen-appointment {
+                background-color: $light;
+                color: $dark;
+            }
         }
     }
 }
@@ -204,6 +271,10 @@ body, .container {
         width: $half-width;
         max-width: $half-width;
         min-width: $half-width;
+        .bio-maps-iframe {
+            width: 100%;
+            height: 400px;
+        }
         .bio-info-text {
 
         }
