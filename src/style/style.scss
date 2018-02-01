@@ -1,4 +1,6 @@
 // Variables
+// @import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
+
 $full-width: 100%;
 $half-width: 50%;
 $third-width: 33.33%;
@@ -12,6 +14,7 @@ $font-two: 'Rock Salt', cursive;
 $font-three: 'Sedgwick Ave Display', cursive;
 $font-four: 'Romanesco', cursive;
 $font-normal: 'Open Sans', sans-serif;
+$font-title: 'UnifrakturCook', cursive;
 
 $small-screen: 900px;
 $tablet: 768px;
@@ -30,13 +33,26 @@ p, h1, h3 {
     margin: 0px;
 }
 
-body, .container {
-    margin: 0px !important;
-    padding: 0px !important;
-    max-width: initial !important;
-    font-family: $font-normal;
-    background-color: $dark;
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    &, .container {
+        margin: 0px !important;
+        padding: 0px !important;
+        max-width: initial !important;
+        font-family: $font-normal;
+        background-color: $dark;
+    }
 }
+
+.App {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1250px;
+}
+
 
 .home {
     width: $full-width;
@@ -63,6 +79,7 @@ body, .container {
     min-width: $full-width;
     height: 80vh;
     min-height: 300px;
+    max-height: 750px;
     background-color: $dark;
     color: $light;
     display: flex;
@@ -70,7 +87,7 @@ body, .container {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-family: $font-four;
+    font-family: $font-title;
     font-size: 35px;
     .header-logo {
         max-width: 100%;
@@ -79,7 +96,7 @@ body, .container {
         max-height: calc(100% - 111px);
     }
     @media screen and (max-width: $phone) {
-        font-size: 25px;
+        font-size: 18px;
     }
 }
 
@@ -176,6 +193,7 @@ body, .container {
         width: 100%;
         max-width: 100%;
         min-width: 100%;
+        font-size: 30px;
     }
     .booking-options {
         flex-basis: 50%;
@@ -242,6 +260,9 @@ body, .container {
             &.chosen-appointment {
                 background-color: $light;
                 color: $dark;
+            }
+            &:hover {
+                cursor: pointer;
             }
         }
     }

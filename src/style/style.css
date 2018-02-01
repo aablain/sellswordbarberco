@@ -15,12 +15,22 @@
 p, h1, h3 {
   margin: 0px; }
 
-body, .container {
-  margin: 0px !important;
-  padding: 0px !important;
-  max-width: initial !important;
-  font-family: "Open Sans", sans-serif;
-  background-color: #181818; }
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%; }
+  body, body .container {
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: initial !important;
+    font-family: "Open Sans", sans-serif;
+    background-color: #181818; }
+
+.App {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1250px; }
 
 .home {
   width: 100%;
@@ -45,6 +55,7 @@ body, .container {
   min-width: 100%;
   height: 80vh;
   min-height: 300px;
+  max-height: 750px;
   background-color: #181818;
   color: #FFFFFF;
   display: flex;
@@ -52,7 +63,7 @@ body, .container {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-family: "Romanesco", cursive;
+  font-family: "UnifrakturCook", cursive;
   font-size: 35px; }
   .header .header-logo {
     max-width: 100%;
@@ -61,7 +72,7 @@ body, .container {
     max-height: calc(100% - 111px); }
   @media screen and (max-width: 500px) {
     .header {
-      font-size: 25px; } }
+      font-size: 18px; } }
 
 .day-section {
   padding: 90px 10px;
@@ -138,7 +149,8 @@ body, .container {
     flex-basis: 100%;
     width: 100%;
     max-width: 100%;
-    min-width: 100%; }
+    min-width: 100%;
+    font-size: 30px; }
   .home-booking-section .booking-options {
     flex-basis: 50%;
     width: 50%;
@@ -190,6 +202,8 @@ body, .container {
       .booking-barber-schedule .barber-schedule-appointments .barber-schedule-appointment.chosen-appointment {
         background-color: #FFFFFF;
         color: #181818; }
+      .booking-barber-schedule .barber-schedule-appointments .barber-schedule-appointment:hover {
+        cursor: pointer; }
 
 .bio {
   width: 100%;

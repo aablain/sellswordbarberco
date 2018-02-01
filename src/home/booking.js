@@ -38,7 +38,7 @@ export default class Booking extends Component<Props, State> {
         selectedTime: ""
     }
 
-    this.calcSlots = this.calcSlots.bind(this);
+    // this.calcSlots = this.calcSlots.bind(this);
     this.updateSelectedBarber = this.updateSelectedBarber.bind(this);
     this.updateStateFromClick = this.updateStateFromClick.bind(this);
     this.updateAppointmentLength = this.updateAppointmentLength.bind(this);
@@ -64,7 +64,7 @@ export default class Booking extends Component<Props, State> {
               return <BarberButton key={barber.id} barber={barber} chooseBarber={this.updateSelectedBarber} selected={this.state.barberSelectedID === barber.id} />;
             }) : <span>No Barbers</span>}
         </div>
-        {this.state && this.state.barberSelectedID !== 0 && this.state.appointmentLength !== 0 && 
+        {this.state && this.state.barberSelectedID !== 0 && 
             <BarberSchedule 
                 timeStart={this.props.timeStart}
                 timeEnd={this.props.timeEnd}
@@ -81,40 +81,11 @@ export default class Booking extends Component<Props, State> {
       </section>;
   }
 
-  calcSlots() {
-      debugger;
-        const timeEnd = this.props.timeEnd;
-        let timeStart = this.props.timeStart;
-        const slotsNum = (timeEnd - timeStart) * 60;
-        let mins = 0;
-        let slots = [];
-        let i = 0;
-        for (i = 0; i < slotsNum; i += this.state.appointmentLength) {
-            
-            const hypotheticalTime = i + this.state.appointmentLength;
-            if (hypotheticalTime < slotsNum) {
-                const noConflict = this.state.appointmentsForBarber.every(appointment => ((
-                    appointment.starthour > timeStart || (appointment.starthour === timeStart && appointment.startminute >= mins)
-                ) || (appointment.endhour < timeStart || (appointment.endhour === timeStart && appointment.endminute <= mins))));
-                if (noConflict === true) {
-                    const display = `${timeStart > 12 ? (timeStart - 12) : timeStart}:${mins === 0 ? "00" : mins}${timeStart > 12 ? "pm" : "am"}`;
-                    slots.push({ starthour: timeStart, startminute: mins, display });
-                }
-            }
-            mins += this.state.appointmentLength;
-            if (mins > 60) {
-              timeStart++;
-              mins -= 60;
-            }
-        }
-        this.setState({ openSlots: slots });
-    }
-  
   updateAppointmentLength() {
       let appointmentLength = 0;
       if (this.state.selectedBarber) {
         appointmentLength = ((this.state.haircut === true ? this.state.selectedBarber.cuttime : 0) + (this.state.shave === true ? this.state.selectedBarber.shavetime : 0));
-        this.setState({ appointmentLength });
+        this.setState({ appointmentTime: {}, appointmentLength, selectedTime: "" });
     } else {
           this.setState({ appointmentLength });
       }
@@ -135,5 +106,35 @@ export default class Booking extends Component<Props, State> {
           this.setState({ [target]: value.display, appointmentTime: value });
       }
   }
+
+//   calcSlots() {
+//       debugger;
+//         const timeEnd = this.props.timeEnd;
+//         let timeStart = this.props.timeStart;
+//         const slotsNum = (timeEnd - timeStart) * 60;
+//         let mins = 0;
+//         let slots = [];
+//         let i = 0;
+//         for (i = 0; i < slotsNum; i += this.state.appointmentLength) {
+            
+//             const hypotheticalTime = i + this.state.appointmentLength;
+//             if (hypotheticalTime < slotsNum) {
+//                 const noConflict = this.state.appointmentsForBarber.every(appointment => ((
+//                     appointment.starthour > timeStart || (appointment.starthour === timeStart && appointment.startminute >= mins)
+//                 ) || (appointment.endhour < timeStart || (appointment.endhour === timeStart && appointment.endminute <= mins))));
+//                 if (noConflict === true) {
+//                     const display = `${timeStart > 12 ? (timeStart - 12) : timeStart}:${mins === 0 ? "00" : mins}${timeStart > 12 ? "pm" : "am"}`;
+//                     slots.push({ starthour: timeStart, startminute: mins, display });
+//                 }
+//             }
+//             mins += this.state.appointmentLength;
+//             if (mins > 60) {
+//               timeStart++;
+//               mins -= 60;
+//             }
+//         }
+//         this.setState({ openSlots: slots });
+//     }
+
 //   barber={this.state.barberSelectedID !== 0 && _.find(this.props.barbers, barber => barber.id === this.state.barberSelectedID)}
 }

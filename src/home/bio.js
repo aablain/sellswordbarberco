@@ -17,17 +17,17 @@ export default class Bio extends Component {
         </div>
         <div className="bio-info">
           <h3 className="bio-title">Location</h3>
-          <p className="bio-info-text">Bozeman, MT yuh dingus.</p>
-          <iframe
+          <p className="bio-info-text">2304 W Main unit 3 Bozeman, MT.</p>
+          {/* <iframe
             className="bio-maps-iframe"
             // width="100%"
             // height="600"
             src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=2304%20W%20Main%20unit%203%20Bozeman%2CMT+(Sellsword%20Barber%20Co)&ie=UTF8&t=&z=15&iwloc=B&output=embed"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-          />
+            marginHeight="0"
+            marginWidth="0"
+          /> */}
           <h3 className="bio-title">Contact</h3>
           <p className="bio-info-text">Email goes here...</p>
         </div>

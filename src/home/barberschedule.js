@@ -68,11 +68,6 @@ export default class BarberSchedule extends Component<Props, State> {
         let slots = [];
         let i = 0;
         for (i = 0; i < slotsNum; i += nextProps.appointmentLength) {
-            mins += nextProps.appointmentLength;
-            if (mins >= 60) {
-                timeStart++;
-                mins -= 60;
-            }
             const hypotheticalTime = i + nextProps.appointmentLength;
             if (hypotheticalTime < slotsNum) {
                 const noConflict = nextProps.appointments.every(appointment => ((
@@ -82,6 +77,11 @@ export default class BarberSchedule extends Component<Props, State> {
                     const display = `${timeStart > 12 ? (timeStart - 12) : timeStart}:${mins < 10 ? "0" + mins : mins}${timeStart > 12 ? "pm" : "am"}`;
                     slots.push({ starthour: timeStart, startminute: mins, display });
                 }
+            }
+            mins += nextProps.appointmentLength;
+            if (mins >= 60) {
+              timeStart++;
+              mins -= 60;
             }
         }
         this.setState({ openSlots: slots });
