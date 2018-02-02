@@ -38,7 +38,6 @@ export default class Booking extends Component<Props, State> {
         selectedTime: ""
     }
 
-    // this.calcSlots = this.calcSlots.bind(this);
     this.updateSelectedBarber = this.updateSelectedBarber.bind(this);
     this.updateStateFromClick = this.updateStateFromClick.bind(this);
     this.updateAppointmentLength = this.updateAppointmentLength.bind(this);
@@ -106,35 +105,6 @@ export default class Booking extends Component<Props, State> {
           this.setState({ [target]: value.display, appointmentTime: value });
       }
   }
-
-//   calcSlots() {
-//       debugger;
-//         const timeEnd = this.props.timeEnd;
-//         let timeStart = this.props.timeStart;
-//         const slotsNum = (timeEnd - timeStart) * 60;
-//         let mins = 0;
-//         let slots = [];
-//         let i = 0;
-//         for (i = 0; i < slotsNum; i += this.state.appointmentLength) {
-            
-//             const hypotheticalTime = i + this.state.appointmentLength;
-//             if (hypotheticalTime < slotsNum) {
-//                 const noConflict = this.state.appointmentsForBarber.every(appointment => ((
-//                     appointment.starthour > timeStart || (appointment.starthour === timeStart && appointment.startminute >= mins)
-//                 ) || (appointment.endhour < timeStart || (appointment.endhour === timeStart && appointment.endminute <= mins))));
-//                 if (noConflict === true) {
-//                     const display = `${timeStart > 12 ? (timeStart - 12) : timeStart}:${mins === 0 ? "00" : mins}${timeStart > 12 ? "pm" : "am"}`;
-//                     slots.push({ starthour: timeStart, startminute: mins, display });
-//                 }
-//             }
-//             mins += this.state.appointmentLength;
-//             if (mins > 60) {
-//               timeStart++;
-//               mins -= 60;
-//             }
-//         }
-//         this.setState({ openSlots: slots });
-//     }
 
 //   barber={this.state.barberSelectedID !== 0 && _.find(this.props.barbers, barber => barber.id === this.state.barberSelectedID)}
 }

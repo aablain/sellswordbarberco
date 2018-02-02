@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import _ from "lodash";
+// import _ from "lodash";
 import AppointmentTime from "../components/appointmenttime";
 
 type Props = {
@@ -36,7 +36,9 @@ export default class BarberSchedule extends Component<Props, State> {
     componentWillReceiveProps(nextProps) {
         // debugger;
         if (nextProps.barber && (nextProps.haircut === true || nextProps.shave === true) && nextProps.appointmentLength !== 0) {
+            if (nextProps.appointmentLength !== this.props.appointmentLength) {
             this.calcSlots(nextProps);
+            }
         }
     }
 
@@ -67,17 +69,46 @@ export default class BarberSchedule extends Component<Props, State> {
         let mins = 0;
         let slots = [];
         let i = 0;
-        for (i = 0; i < slotsNum; i += nextProps.appointmentLength) {
-            const hypotheticalTime = i + nextProps.appointmentLength;
-            if (hypotheticalTime < slotsNum) {
-                const noConflict = nextProps.appointments.every(appointment => ((
-                    appointment.starthour > timeStart || (appointment.starthour === timeStart && appointment.startminute >= mins)
-                ) || (appointment.endhour < timeStart || (appointment.endhour === timeStart && appointment.endminute <= mins))));
+        for (i; i < slotsNum; i += nextProps.appointmentLength) {
+            const hypotheticalEndTime = i + nextProps.appointmentLength;
+            if (hypotheticalEndTime < slotsNum) {
+                let conflictedTime;
+                const noConflict = nextProps.appointments.every(app => {
+                    const appStart = ((app.starthour - nextProps.timeStart) * 60) + app.startminute;
+                    const appEnd = ((app.endhour - nextProps.timeStart) * 60) + app.endminute;
+                    if ((i >= appEnd) || (i < appStart && hypotheticalEndTime <= appStart)) {
+                        return true;
+                    } else {
+                         i = appEnd
+                         mins = app.endminute
+                         conflictedTime = app;
+                         return false;
+                    }
+                });
                 if (noConflict === true) {
+                    debugger;
                     const display = `${timeStart > 12 ? (timeStart - 12) : timeStart}:${mins < 10 ? "0" + mins : mins}${timeStart > 12 ? "pm" : "am"}`;
                     slots.push({ starthour: timeStart, startminute: mins, display });
+                } else if (noConflict === false && conflictedTime) {
+                    const conflictedNum = ((conflictedTime.endhour - nextProps.timeStart) * 60) + conflictedTime.endminute;
+                    const doubleCheck = nextProps.appointments.every(app => {
+                        const appStartTwo = ((app.starthour - nextProps.timeStart) * 60) + app.startminute;
+                        const appEndTwo = ((app.endhour - nextProps.timeStart) * 60) + app.endminute;
+                        if ((conflictedNum >= appEndTwo) || (i < appStartTwo && (conflictedNum + nextProps.appointmentLength) <= appStartTwo)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                    const endConflictedNum = conflictedNum + nextProps.appointmentLength;
+                    if (doubleCheck === true && conflictedNum < slotsNum) {
+                        timeStart = conflictedTime.endhour;
+                        const display = `${conflictedTime.endhour > 12 ? conflictedTime.endhour - 12 : conflictedTime.endhour}:${conflictedTime.endminute < 10 ? "0" + conflictedTime.endminute : conflictedTime.endminute}${conflictedTime.endhour > 12 ? "pm" : "am"}`;
+                        slots.push({ starthour: conflictedTime.endhour, startminute: conflictedTime.endminute, display });
+                    }
                 }
             }
+            debugger;
             mins += nextProps.appointmentLength;
             if (mins >= 60) {
               timeStart++;
