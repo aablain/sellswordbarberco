@@ -49,6 +49,7 @@ export default class BarberSchedule extends Component<Props, State> {
                 <div className="barber-schedule-appointments">
                     {this.props.appointmentLength !== 0 ? this.state.openSlots.map(slot => {
                         return <AppointmentTime
+                            appointmentLength={this.props.appointmentLength}
                             updateSelectedTime={this.props.updateSelectedTime}
                             selected={this.props.selectedTime === slot.display}
                             key={slot.display} 

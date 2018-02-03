@@ -183,6 +183,77 @@ body {
       color: #181818; }
     .home-booking-section .booking-button:hover {
       cursor: pointer; }
+  .home-booking-section .booking-inputs-container {
+    padding: 30px 0px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    .home-booking-section .booking-inputs-container .booking-input-box {
+      flex-basis: 50%;
+      width: 50%;
+      min-width: 50%;
+      max-width: 50%; }
+      .home-booking-section .booking-inputs-container .booking-input-box .booking-input-label {
+        margin: 0px; }
+      .home-booking-section .booking-inputs-container .booking-input-box .booking-input {
+        padding: 8px;
+        margin: 0px 10px 10px;
+        font-size: 18px;
+        border: 1px solid #FFFFFF; }
+        .home-booking-section .booking-inputs-container .booking-input-box .booking-input:focus, .home-booking-section .booking-inputs-container .booking-input-box .booking-input:active {
+          outline: none;
+          border-color: #646464; }
+    @media screen and (max-width: 768px) {
+      .home-booking-section .booking-inputs-container {
+        padding: 30px 5px 10px; }
+        .home-booking-section .booking-inputs-container .booking-input-box {
+          flex-basis: 100%;
+          width: 100%;
+          min-width: 100%;
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center; }
+          .home-booking-section .booking-inputs-container .booking-input-box .booking-input-label {
+            font-size: 18px;
+            width: 100%;
+            max-width: 450px; }
+          .home-booking-section .booking-inputs-container .booking-input-box .booking-input {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            max-width: 450px; } }
+  .home-booking-section .booking-buttons {
+    padding: 50px 0px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .home-booking-section .booking-buttons .booking-buttons-save, .home-booking-section .booking-buttons .booking-buttons-cancel {
+      font-size: 20px;
+      padding: 6px 12px;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 95px;
+      max-width: 95px;
+      min-width: 95px;
+      text-align: center;
+      display: block;
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+      transition: background-color 120ms ease-in-out; }
+      .home-booking-section .booking-buttons .booking-buttons-save:hover, .home-booking-section .booking-buttons .booking-buttons-cancel:hover {
+        cursor: pointer;
+        background-color: #FFFFFF;
+        color: #181818; }
+    .home-booking-section .booking-buttons .booking-buttons-save {
+      background-color: #FFFFFF;
+      color: #181818;
+      opacity: 0.6; }
+      .home-booking-section .booking-buttons .booking-buttons-save:hover {
+        cursor: not-allowed; }
 
 .booking-barber-schedule {
   padding: 25px 10px;
@@ -230,6 +301,13 @@ body {
     .bio .bio-info .bio-maps-iframe {
       width: 100%;
       height: 400px; }
+    .bio .bio-info .bio-info-text {
+      color: #FFFFFF; }
+      .bio .bio-info .bio-info-text a {
+        color: inherit;
+        text-decoration: none; }
+        .bio .bio-info .bio-info-text a:hover {
+          text-decoration: underline; }
   .bio .bio-title {
     font-size: 30px; }
   @media screen and (max-width: 900px) {

@@ -29,7 +29,9 @@ export default class Bio extends Component {
             marginWidth="0"
           /> */}
           <h3 className="bio-title">Contact</h3>
-          <p className="bio-info-text">Email goes here...</p>
+          <p className="bio-info-text">
+            <a href="mailto:sellswordbarberco@gmail.com">SellswordBarberCo@gmail.com</a>
+          </p>
         </div>
       </section>;
   }

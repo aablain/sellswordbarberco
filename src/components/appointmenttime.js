@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 
 type Props = {
+    appointmentLength: number,
     display: string,
     starthour: number,
     startminute: number,
@@ -25,7 +26,13 @@ export default class AppointmentTime extends Component<Props> {
     }
 
     updateSelectedAppointmentTime() {
-        const appointmentTime = { starthour: this.props.starthour, startminute: this.props.startminute, display: this.props.display };
+        let endminute = this.props.startminute + this.props.appointmentLength;
+        let endhour = this.props.starthour;
+        if (endminute >= 60) {
+            endminute -= 60;
+            endhour++;
+        }
+        const appointmentTime = { endhour, endminute, starthour: this.props.starthour, startminute: this.props.startminute, display: this.props.display };
         this.props.updateSelectedTime("selectedTime", appointmentTime);
     }
 }
