@@ -1,5 +1,5 @@
 // Variables
-// @import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
+@import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
 
 $full-width: 100%;
 $half-width: 50%;
@@ -371,6 +371,10 @@ body {
         .bio-about-text {
             font-size: 20px;
         }
+        .bio-about-image {
+            max-height: 100%;
+            max-width: 100%;
+        }
     }
     .bio-info {
         padding: 10px 15px;
@@ -405,6 +409,9 @@ body {
         }
         .bio-about {
             padding-bottom: 35px;
+            .bio-about-image {
+                display: none;
+            }
         }
     }
 }

@@ -39,13 +39,13 @@ export default class Section extends Component<Props, State> {
     return (
       <section
         className={`day-section${
-          this.state.canBook ? " open-for-booking" : " cannot-book"
+          this.state.canBook ? " open-for-booking-fdjslkfjkl cannot-book" : " cannot-book"
         }`}
       >
         <h3 className="day-section-title">{this.props.title}</h3>
         <p className="day-section-subtitle">{this.props.subtitle}</p>
-        <span onClick={this.updateBookingPeriod} className="day-section-button">
-          {this.state.canBook ? "Book" : this.props.btnText}
+        <span onClick={this.state && this.state.canBook && this.updateBookingPeriod} className="day-section-button">
+          {this.state.canBook ? this.props.btnText : this.props.btnText}
         </span>
       </section>
     );
@@ -76,8 +76,8 @@ export default class Section extends Component<Props, State> {
   }
 
   updateBookingPeriod() {
-    if (this.props.period && this.props.bookingToggle) {
-      this.props.bookingToggle(this.props.period);
-    }
+//     if (this.props.period && this.props.bookingToggle) {
+//       this.props.bookingToggle(this.props.period);
+//     }
   }
 }

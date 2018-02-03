@@ -83,7 +83,7 @@ export default class Home extends Component<State> {
                 title="Morning Appointments"
                 subtitle="9:00am - 12:00pm"
                 btnLink=""
-                btnText="Booking open 8am - 12pm"
+                btnText="Bookings open February 6th"
               />
             )}
           {this.state &&
@@ -96,7 +96,7 @@ export default class Home extends Component<State> {
                 title="Afternoon Appointments"
                 subtitle="1:00pm - 3:00pm"
                 btnLink=""
-                btnText="Booking open 12pm - 3:00pm"
+                btnText="Bookings open February 6th"
               />
             )}
           {this.state &&
@@ -109,7 +109,7 @@ export default class Home extends Component<State> {
                 title="Evening Appointments"
                 subtitle="3:00pm - 6:00pm"
                 btnLink=""
-                btnText="Booking open 2pm - 6pm"
+                btnText="Bookings open February 6th"
               />
             )}
         </div>

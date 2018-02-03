@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
 @keyframes slideDown {
   0% {
     height: 0px;
@@ -292,6 +293,9 @@ body {
     min-width: 50%; }
     .bio .bio-about .bio-about-text {
       font-size: 20px; }
+    .bio .bio-about .bio-about-image {
+      max-height: 100%;
+      max-width: 100%; }
   .bio .bio-info {
     padding: 10px 15px;
     flex-basis: 50%;
@@ -317,6 +321,8 @@ body {
       max-width: 100%;
       min-width: 100%; }
     .bio .bio-about {
-      padding-bottom: 35px; } }
+      padding-bottom: 35px; }
+      .bio .bio-about .bio-about-image {
+        display: none; } }
 
 /*# sourceMappingURL=style.css.map */
