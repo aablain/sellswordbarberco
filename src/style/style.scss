@@ -136,6 +136,17 @@ body {
             // color: $light;
         }
     }
+    .day-section-schedulicity {
+        display: block;
+        width: 100%;
+        text-align: center;
+        img {
+            width: 190px;
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
     &.open-for-booking {
         background-color: $dark;
         color: $light;
@@ -316,9 +327,11 @@ body {
         .booking-buttons-save {
             background-color: $light;
             color: $dark;
-            opacity: 0.6;
-            &:hover {
-                cursor: not-allowed;
+            &.disabled {
+                opacity: 0.6;
+                &:hover {
+                    cursor: not-allowed;
+                }
             }
         }
     }

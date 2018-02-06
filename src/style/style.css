@@ -105,6 +105,14 @@ body {
     transition: background-color 120ms ease-in-out; }
     .day-section .day-section-button:hover {
       cursor: pointer; }
+  .day-section .day-section-schedulicity {
+    display: block;
+    width: 100%;
+    text-align: center; }
+    .day-section .day-section-schedulicity img {
+      width: 190px; }
+      .day-section .day-section-schedulicity img:hover {
+        opacity: 0.9; }
   .day-section.open-for-booking {
     background-color: #181818;
     color: #FFFFFF; }
@@ -251,10 +259,11 @@ body {
         color: #181818; }
     .home-booking-section .booking-buttons .booking-buttons-save {
       background-color: #FFFFFF;
-      color: #181818;
-      opacity: 0.6; }
-      .home-booking-section .booking-buttons .booking-buttons-save:hover {
-        cursor: not-allowed; }
+      color: #181818; }
+      .home-booking-section .booking-buttons .booking-buttons-save.disabled {
+        opacity: 0.6; }
+        .home-booking-section .booking-buttons .booking-buttons-save.disabled:hover {
+          cursor: not-allowed; }
 
 .booking-barber-schedule {
   padding: 25px 10px;

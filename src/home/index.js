@@ -14,6 +14,7 @@ type State = {
   bookingPeriod: number,
   date: Object,
   endpoint: string,
+  saveAppointment: Function,
   showBooking: boolean
 };
 
@@ -50,6 +51,7 @@ export default class Home extends Component<State> {
     };
 
     this.connectFirebase = this.connectFirebase.bind(this);
+    this.saveAppointment = this.saveAppointment.bind(this);
     this.updateBookingPeriod = this.updateBookingPeriod.bind(this);
   }
 
@@ -115,7 +117,16 @@ export default class Home extends Component<State> {
         </div>
         {this.state &&
           this.state.showBooking === true && (
-            <Booking appointments={_.filter(this.state.appointments, app => app.startday === this.state.date.dayofmonth)} barbers={this.state.barbers} endpoint={this.state.endpoint} period={this.state.bookingPeriod} timeStart={this.state.timeStart} timeEnd={this.state.timeEnd} />
+            <Booking
+                appointments={_.filter(this.state.appointments, app => app.startday === this.state.date.dayofmonth)}
+                barbers={this.state.barbers}
+                endpoint={this.state.endpoint}
+                period={this.state.bookingPeriod}
+                saveAppointment={this.saveAppointment}
+                timeStart={this.state.timeStart}
+                timeEnd={this.state.timeEnd}
+                dayofmonth={this.state.date && this.state.date.dayofmonth}
+            />
           )}
         <Bio />
       </div>
@@ -138,6 +149,14 @@ export default class Home extends Component<State> {
             this.setState({ barbers });
           });
       }
+  }
+
+  saveAppointment(newAppointment) {
+      fire
+        .database()
+        .ref()
+        .child(`appointments/${this.state.endpoint}`)
+        .push( newAppointment );
   }
   
   updateBookingPeriod(newBookingPeriod: number) {
