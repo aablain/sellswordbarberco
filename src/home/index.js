@@ -82,10 +82,10 @@ export default class Home extends Component<State> {
                 bookingToggle={this.updateBookingPeriod}
                 date={this.state.date}
                 period={1}
-                title="Morning Appointments"
+                title="Morning Waitlist"
                 subtitle="9:00am - 12:00pm"
                 btnLink=""
-                btnText="Bookings open February 6th"
+                btnText="Bookings open at 8am"
               />
             )}
           {this.state &&
@@ -111,7 +111,7 @@ export default class Home extends Component<State> {
                 title="Evening Appointments"
                 subtitle="3:00pm - 6:00pm"
                 btnLink=""
-                btnText="Bookings open February 6th"
+                btnText="Bookings open at 2pm"
               />
             )}
         </div>
@@ -137,9 +137,17 @@ export default class Home extends Component<State> {
       if (this.state.endpoint) {
           const appointmentsRef = fire.database().ref().child(`appointments/${this.state.endpoint}`);
           appointmentsRef.on('value', snap => {
-              let appointment = { ...snap.val(), key: snap.key };
+              const key = snap.key;
+              let appointment = { ...snap.val() };
+              const keys = Object.keys(appointment);
+              keys.map(key => appointment[key].key = key);
+              appointment.key = snap.key;
               this.setState({ appointments: appointment });
           });
+          appointmentsRef.on('child_added', snapshot => {
+              let app = { ...snapshot.val(), key: snapshot.key };
+              this.setState({ appointments: [app].concat(this.state.appointments) });
+          })
           const barbersRef = fire
             .database()
             .ref()

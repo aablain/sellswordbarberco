@@ -36,11 +36,11 @@ export default class Section extends Component<Props, State> {
   }
 
   render() {
-    return <section className={`day-section${this.state.canBook ? " open-for-booking" : " cannot-book"}`}>
+    return <section className={`day-section${this.state.canBook ? " open-for-booking-asdf cannot-book" : " cannot-book"}`}>
         <h3 className="day-section-title">{this.props.title}</h3>
         <p className="day-section-subtitle">{this.props.subtitle}</p>
-        {this.props.period === 2 ? <a className="day-section-schedulicity" href="https://www.schedulicity.com/scheduling/SBCNW8"><img src={require('../schedulenow_lt_green3_lg.png')} /></a> : <span onClick={this.state && this.state.canBook ? this.updateBookingPeriod : void 0} className="day-section-button">
-            {this.state.canBook ? "Book" : this.props.btnText}
+        {this.props.period === 2 ? <a target="_blank" className="day-section-schedulicity" href="https://www.schedulicity.com/scheduling/SBCNW8"><img src={require('../schedulenow_lt_green3_lg.png')} /></a> : <span onClick={this.state && this.state.canBook ? this.updateBookingPeriod : void 0} className="day-section-button">
+            {this.state.canBook ? this.props.btnText : this.props.btnText}
           </span>}
       </section>;
   }
@@ -70,8 +70,8 @@ export default class Section extends Component<Props, State> {
   }
 
   updateBookingPeriod() {
-    if (this.props.period && this.props.bookingToggle) {
-      this.props.bookingToggle(this.props.period);
-    }
+//     if (this.props.period && this.props.bookingToggle) {
+//       this.props.bookingToggle(this.props.period);
+//     }
   }
 }

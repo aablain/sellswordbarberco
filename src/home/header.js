@@ -5,7 +5,7 @@ export default class Header extends Component {
     return (
       <header className="header">
         <img className="header-logo" src={require('../sellsword-logo-inverted.png')} />
-        <h1>Sellsword Barber Co.</h1>
+        <h1 className="header-title"><span className="title-half">Sellsword</span> <span className="title-half">Barber Co.</span></h1>
       </header>
     );
   }

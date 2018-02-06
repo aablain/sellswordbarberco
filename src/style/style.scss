@@ -1,6 +1,13 @@
 // Variables
 @import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
 
+@font-face {
+  font-family: 'Canterbury';
+  src: url('Canterbury.ttf') format('truetype');
+  font-weight: bold;
+  font-style: bold;
+}
+
 $full-width: 100%;
 $half-width: 50%;
 $third-width: 33.33%;
@@ -87,16 +94,30 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-family: $font-title;
-    font-size: 35px;
+    font-family: 'Canterbury';
+    font-size: 40px;
     .header-logo {
         max-width: 100%;
         max-width: 100%;
         height: calc(100% - 111px);
         max-height: calc(100% - 111px);
     }
+    @media screen and (max-width: $tablet) {
+        font-size: 30px;
+    }
     @media screen and (max-width: $phone) {
-        font-size: 18px;
+        .header-title {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                text-align: center;
+            .title-half {
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+            }
+        }
+        font-size: 30px;
     }
 }
 
@@ -141,7 +162,7 @@ body {
         width: 100%;
         text-align: center;
         img {
-            width: 190px;
+            width: 180px;
             &:hover {
                 opacity: 0.9;
             }
@@ -305,6 +326,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
         .booking-buttons-save, .booking-buttons-cancel {
             font-size: 20px;
             padding: 6px 12px;
@@ -333,6 +355,32 @@ body {
                     cursor: not-allowed;
                 }
             }
+        }
+        .confirmation {
+            padding: 20px 0px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            flex-basis: 100%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+        .confirmation-title {
+            text-align: center;
+            width: 100%;
+            flex-basis: 100%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+        .confirmation-text {
+            padding-top: 10px;
+            text-align: center;
+            width: 100%;
+            flex-basis: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            font-size: 22px;
         }
     }
 }

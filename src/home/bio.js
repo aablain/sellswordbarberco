@@ -8,7 +8,7 @@ export default class Bio extends Component {
           <p className="bio-about-text">
             Sellsword Barber Co is Inspired by the travels of Mark
             Neddenriep and his wife. Matched with 7 years of traditional
-            barbing experience, Sellsword desires to be a community location
+            barbering experience, Sellsword desires to be a community location
             where customers feel respected by the skilled services and
             environment within the walls of the shop. We are thankful for
             your visit to the shop. Loyal customers are the life blood of a
