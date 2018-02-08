@@ -108,7 +108,7 @@ export default class Home extends Component<State> {
                 bookingToggle={this.updateBookingPeriod}
                 date={{ date: "", day: 1, hour: 16, minute: 2 }}
                 period={3}
-                title="Evening Appointments"
+                title="Evening Waitlist"
                 subtitle="3:00pm - 6:00pm"
                 btnLink=""
                 btnText="Bookings open at 2pm"

@@ -356,7 +356,8 @@ body {
                 }
             }
         }
-        .confirmation {
+    }
+    .confirmation {
             padding: 20px 0px;
             display: flex;
             flex-direction: row;
@@ -365,6 +366,7 @@ body {
             flex-basis: 100%;
             min-width: 100%;
             max-width: 100%;
+            height: 110px;
         }
         .confirmation-title {
             text-align: center;
@@ -372,6 +374,7 @@ body {
             flex-basis: 100%;
             min-width: 100%;
             max-width: 100%;
+            font-size: 18px;
         }
         .confirmation-text {
             padding-top: 10px;
@@ -380,9 +383,13 @@ body {
             flex-basis: 100%;
             min-width: 100%;
             max-width: 100%;
-            font-size: 22px;
+            font-size: 30px;
         }
-    }
+        @media screen and (max-width: $phone) {
+            .confirmation-text {
+                font-size: 22px;
+            }
+        }
 }
 
 .booking-barber-schedule {

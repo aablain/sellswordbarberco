@@ -77,7 +77,13 @@ export default class Booking extends Component<Props, State> {
     }
 
     render() {
-    return <section className="home-booking-section">
+    return this.state && this.state.bookedAppointment.phone !== undefined ? <section className="home-booking-section">
+        <div className="confirmation">
+            <p className="confirmation-title">confirmation number:</p>
+            <p className="confirmation-text">{this.getID()}</p>
+        </div>
+    </section> :
+    <section className="home-booking-section">
         <h2 className="booking-section-header">
             Book an Appointment
         </h2>
@@ -115,11 +121,11 @@ export default class Booking extends Component<Props, State> {
         </div>
         {this.state && this.state.barberSelectedID !== 0 && <BarberSchedule timeStart={this.props.timeStart} timeEnd={this.props.timeEnd} appointments={_.filter(this.props.appointments, app => app.barber === this.state.barberSelectedID)} appointmentLength={this.state.appointmentLength} barber={this.state.selectedBarber} haircut={this.state.haircut} bookingPeriod={this.props.period} selectedTime={this.state.selectedTime} updateSelectedTime={this.updateStateFromClick} shave={this.state.shave} />}
         <div className="booking-inputs-container">
-            <Input updateText={this.updatePhone} type="number" text={this.state.phoneNumber} placeholder="Enter your phone number" label="Phone Number" />
-            <Input updateText={this.updateConfirmPhone} type="number" text={this.state.confirmPhoneNumber} placeholder="Re-Enter your phone number" label="Re-Enter Phone Number" />
-            <Input updateText={this.updateEmail} type="text" text={this.state.email} placeholder="Enter your email" label="Email" />
-            <Input updateText={this.updateConfirmEmail} type="text" text={this.state.confirmEmail} placeholder="Re-Enter your email" label="Re-Enter Email" />
-            <Input updateText={this.updateName} type="text" text={this.state.name} placeholder="Enter Your Name" label="Enter Your Name" />
+            <Input updateText={this.updatePhone} type="number" text={this.state.phoneNumber} placeholder="123 555 5555" label="Phone Number" />
+            <Input updateText={this.updateConfirmPhone} type="number" text={this.state.confirmPhoneNumber} placeholder="123 555 5555" label="Re-Enter Phone Number" />
+            <Input updateText={this.updateEmail} type="text" text={this.state.email} placeholder="Blah@Blah.com" label="Email" />
+            <Input updateText={this.updateConfirmEmail} type="text" text={this.state.confirmEmail} placeholder="Blah@blah.com" label="Re-Enter Email" />
+            <Input updateText={this.updateName} type="text" text={this.state.name} placeholder="Joe Schmo" label="Enter Your Name" />
         </div>
         <div className="booking-buttons">
             <span className="booking-buttons-cancel">
@@ -128,10 +134,6 @@ export default class Booking extends Component<Props, State> {
             <span className={`booking-buttons-save${this.state.canSubmit === true ? "" : " disabled"}`} onClick={this.state.canSubmit === true ? this.submitAppointment : void 0}>
             Book
             </span>
-            {this.state && this.state.bookedAppointment.phone !== undefined && <div className="confirmation">
-                <p className="confirmation-title">confirmation number:</p>
-                <p className="confirmation-text">{this.getID()}</p>
-            </div>}
         </div>
         </section>;
     }
