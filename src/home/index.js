@@ -11,11 +11,11 @@ import fire from "../fire";
 type State = {
     appointments: Array,
     barbers: Array,
-  bookingPeriod: number,
-  date: Object,
-  endpoint: string,
-  saveAppointment: Function,
-  showBooking: boolean
+    bookingPeriod: number,
+    date: Object,
+    endpoint: string,
+    saveAppointment: Function,
+    showBooking: boolean
 };
 
 const monthObj = {
@@ -42,12 +42,12 @@ export default class Home extends Component<State> {
     this.state = {
         appointments: [],
         barbers: [],
-      date: {},
-      endpoint: '',
-      showBooking: false,
-      bookingPeriod: 0,
-      timeEnd: 9,
-      timeStart: 9,
+        date: {},
+        endpoint: '',
+        showBooking: false,
+        bookingPeriod: 0,
+        timeEnd: 9,
+        timeStart: 9,
     };
 
     this.connectFirebase = this.connectFirebase.bind(this);
@@ -85,7 +85,7 @@ export default class Home extends Component<State> {
                 title="Morning Waitlist"
                 subtitle="9:00am - 12:00pm"
                 btnLink=""
-                btnText="Bookings open at 8am"
+                btnText="Waitlist opens at 8am"
               />
             )}
           {this.state &&
@@ -96,9 +96,9 @@ export default class Home extends Component<State> {
                 date={this.state.date}
                 period={2}
                 title="Afternoon Appointments"
-                subtitle="1:00pm - 3:00pm"
+                subtitle=""
                 btnLink=""
-                btnText="Bookings open February 6th"
+                btnText="Waitlist opens at 12pm"
               />
             )}
           {this.state &&
@@ -106,12 +106,12 @@ export default class Home extends Component<State> {
             (this.state.date.day || this.state.date.day === 0) && (
               <Section
                 bookingToggle={this.updateBookingPeriod}
-                date={{ date: "", day: 1, hour: 16, minute: 2 }}
+                date={this.state.date}
                 period={3}
                 title="Evening Waitlist"
                 subtitle="3:00pm - 6:00pm"
                 btnLink=""
-                btnText="Bookings open at 2pm"
+                btnText="Waitlist opens at 2pm"
               />
             )}
         </div>

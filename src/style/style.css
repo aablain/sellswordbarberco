@@ -380,4 +380,70 @@ body {
       .bio .bio-about .bio-about-image {
         display: none; } }
 
+/* Admin Page Styles */
+.admin-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 100%;
+  color: #FFFFFF; }
+  .admin-page .admin-page-title {
+    padding: 40px 0px 60px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    text-align: center;
+    font-family: 'Canterbury';
+    font-size: 50px; }
+
+.barber-appointments-container {
+  margin: 0px 5px 50px;
+  border: 2px solid #FFFFFF;
+  border-radius: 6px;
+  padding-bottom: 20px;
+  width: 100%;
+  max-width: 525px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .barber-appointments-container .barber-appointments-title {
+    margin-top: -16px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    text-align: center;
+    font-size: 25px; }
+    .barber-appointments-container .barber-appointments-title span {
+      padding: 0px 10px;
+      background-color: #181818; }
+  .barber-appointments-container .single-appointment {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; }
+    .barber-appointments-container .single-appointment .single-appointment-name,
+    .barber-appointments-container .single-appointment .single-appointment-barber,
+    .barber-appointments-container .single-appointment .single-appointment-start,
+    .barber-appointments-container .single-appointment .single-appointment-end,
+    .barber-appointments-container .single-appointment .single-appointment-phone,
+    .barber-appointments-container .single-appointment .single-appointment-email {
+      flex-basis: 16.66%;
+      width: 16.66%;
+      max-width: 16.66%;
+      min-width: 16.66%; }
+  .barber-appointments-container .barber-appointments-no-apps {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    text-align: center;
+    opacity: 0.25; }
+  @media screen and (max-width: 900px) {
+    .barber-appointments-container {
+      max-width: 100%; } }
+
 /*# sourceMappingURL=style.css.map */

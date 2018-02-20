@@ -11,6 +11,7 @@
 $full-width: 100%;
 $half-width: 50%;
 $third-width: 33.33%;
+$max-width: 1250px;
 
 $dark: #181818;
 $light: #FFFFFF;
@@ -57,7 +58,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 1250px;
+    max-width: $max-width;
 }
 
 
@@ -481,5 +482,97 @@ body {
                 display: none;
             }
         }
+    }
+}
+
+/* Admin Page Styles */
+.admin-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: $full-width;
+    color: $light;
+    .admin-page-title {
+        padding: 40px 0px 60px;
+        width: $full-width;
+        max-width: $full-width;
+        min-width: $full-width;
+        text-align: center;
+        font-family: 'Canterbury';
+        font-size: 50px;
+    }
+}
+
+.barber-appointments-container {
+    margin: 0px 5px 50px;
+    border: 2px solid $light;
+    border-radius: 6px;
+    padding-bottom: 20px;
+    width: 100%;
+    max-width: 525px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .barber-appointments-title {
+        margin-top: -16px;
+        width: $full-width;
+        max-width: $full-width;
+        min-width: $full-width;
+        text-align: center;
+        font-size: 25px;
+        span {
+            padding: 0px 10px;
+            background-color: $dark;
+        }
+    }
+    .single-appointment {
+        width: $full-width;
+        min-width: $full-width;
+        max-width: $full-width;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        .single-appointment-name,
+        .single-appointment-barber,
+        .single-appointment-start,
+        .single-appointment-end,
+        .single-appointment-phone,
+        .single-appointment-email {
+            flex-basis: 16.66%;
+            width: 16.66%;
+            max-width: 16.66%;
+            min-width: 16.66%;
+        }
+        .single-appointment-name {
+
+        }
+        .single-appointment-barber {
+
+        }
+        .single-appointment-start {
+
+        }
+        .single-appointment-end {
+
+        }
+        .single-appointment-phone {
+
+        }
+        .single-appointment-email {
+
+        }
+    }
+    .barber-appointments-no-apps {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        text-align: center;
+        opacity: 0.25;
+    }
+    @media screen and (max-width: $small-screen) {
+        max-width: $full-width;
     }
 }
