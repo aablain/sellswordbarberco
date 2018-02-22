@@ -70,8 +70,8 @@ export default class Section extends Component<Props, State> {
   }
 
   updateBookingPeriod() {
-    // if (this.props.period && this.props.bookingToggle) {
-    //   this.props.bookingToggle(this.props.period);
-    // }
+    if (this.props.period && this.props.bookingToggle) {
+      this.props.bookingToggle(this.props.period);
+    }
   }
 }

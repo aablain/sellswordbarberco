@@ -407,10 +407,11 @@ body {
   max-width: 525px;
   min-height: 200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap; }
   .barber-appointments-container .barber-appointments-title {
     margin-top: -16px;
+    margin-bottom: 16px;
     width: 100%;
     max-width: 100%;
     min-width: 100%;
@@ -420,6 +421,7 @@ body {
       padding: 0px 10px;
       background-color: #181818; }
   .barber-appointments-container .single-appointment {
+    padding: 4px 10px;
     width: 100%;
     min-width: 100%;
     max-width: 100%;
@@ -436,6 +438,57 @@ body {
       width: 16.66%;
       max-width: 16.66%;
       min-width: 16.66%; }
+    .barber-appointments-container .single-appointment .single-appointment-name {
+      flex-basis: 200px;
+      width: 200px;
+      max-width: 200px;
+      min-width: 200px; }
+    .barber-appointments-container .single-appointment .single-appointment-start {
+      flex-basis: 55px;
+      width: 55px;
+      max-width: 55px;
+      min-width: 55px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center; }
+    .barber-appointments-container .single-appointment .single-appointment-end {
+      flex-basis: 55px;
+      width: 55px;
+      max-width: 55px;
+      min-width: 55px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center; }
+    .barber-appointments-container .single-appointment .single-appointment-phone {
+      padding: 0px 4px;
+      flex-basis: calc(100% - 310px);
+      width: calc(100% - 310px);
+      max-width: calc(100% - 310px);
+      min-width: 100px;
+      text-align: right; }
+      .barber-appointments-container .single-appointment .single-appointment-phone a {
+        color: inherit;
+        text-decoration: none; }
+        .barber-appointments-container .single-appointment .single-appointment-phone a:hover {
+          text-decoration: underline; }
+    .barber-appointments-container .single-appointment .single-appointment-email {
+      flex-basis: 155px;
+      width: 155px;
+      max-width: 155px;
+      min-width: 155px; }
+    .barber-appointments-container .single-appointment .single-appointment-open-slot-text {
+      padding: 4px 0px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      text-align: center;
+      border-radius: 3px;
+      background-color: rgba(255, 255, 255, 0.3);
+      transition: background-color 120ms ease-in-out; }
+      .barber-appointments-container .single-appointment .single-appointment-open-slot-text:hover {
+        cursor: pointer;
+        color: #181818;
+        background-color: #FFFFFF; }
   .barber-appointments-container .barber-appointments-no-apps {
     width: 100%;
     max-width: 100%;

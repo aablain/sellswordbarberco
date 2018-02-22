@@ -106,7 +106,7 @@ export default class Home extends Component<State> {
             (this.state.date.day || this.state.date.day === 0) && (
               <Section
                 bookingToggle={this.updateBookingPeriod}
-                date={this.state.date}
+                date={{ day: 3, dayofmonth: 21, hour: 15, minute: 10, }}
                 period={3}
                 title="Evening Waitlist"
                 subtitle="3:00pm - 6:00pm"
