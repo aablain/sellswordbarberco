@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+type Props = {
+    passNewApp: Function
+}
+
 export default class SingleAppointment extends Component {
     constructor(props) {
         super(props);
@@ -50,5 +54,7 @@ export default class SingleAppointment extends Component {
         //
         // This still needs more info before it gets to this point to know the start...
         // and end times OR info regarding how to properly calculate that.
+
+        this.props.passNewApp(this.props.appointment);
     }
 }

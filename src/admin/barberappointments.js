@@ -3,7 +3,8 @@ import SingleAppointment from "./singleappointment";
 
 type Props = {
     appointments: array,
-    barber: Object
+    barber: Object,
+    passNewApp: Function
 }
 
 
@@ -23,14 +24,22 @@ export default class BarberAppointments extends Component {
     }
 
     render() {
-        return (
-            <div className="barber-appointments-container">
-                <h3 className="barber-appointments-title"><span>{this.props.barber.name}</span></h3>
-                {this.state.chronologicalAppointments.length > 0 ? 
-                    this.state.chronologicalAppointments.map(appointment => <SingleAppointment appointment={appointment} key={appointment.key} />) : 
-                    <p className="barber-appointments-no-apps">No appointments on waitlist</p>}
-            </div>
-        );
+        return <div className="barber-appointments-container">
+            <h3 className="barber-appointments-title">
+              <span>{this.props.barber.name}</span>
+            </h3>
+            {this.state.chronologicalAppointments.length > 0 ? this.state.chronologicalAppointments.map(
+                appointment => (
+                  <SingleAppointment
+                    appointment={appointment}
+                    key={appointment.key}
+                    passNewApp={this.props.passNewApp}
+                  />
+                )
+              ) : <p className="barber-appointments-no-apps">
+                No appointments on waitlist
+              </p>}
+          </div>;
     }
 
     arrangeAppointments() {
@@ -46,7 +55,15 @@ export default class BarberAppointments extends Component {
                     const inbetween = ((nextObj.starthour * 60) + nextObj.startminute) - ((curObj.endhour * 60) + curObj.endminute);
                     if (inbetween >= this.props.barber.cuttime) {
                         const howMany = Math.floor(inbetween / this.props.barber.cuttime);
-                        cummul.push(carr[i], { isOpenSlot: true, openSlots: howMany });
+                        cummul.push(carr[i], {
+                            isOpenSlot: true,
+                            openSlots: howMany,
+                            gapStartHour: curObj.endhour,
+                            gapStartMinute: curObj.endminute,
+                            gapEndHour: nextObj.starthour,
+                            gapEndMinute: nextObj.endminute,
+                            barberCutTime: this.props.barber.cuttime
+                        });
                     } else {
                         cummul.push(carr[i]);
                     }

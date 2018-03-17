@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import BarberAppointments from "./barberappointments";
+import NewAppointment from "./newappointment";
 import fire from "../fire";
 
 const monthObj = {
@@ -24,10 +25,12 @@ export default class AdminPage extends Component {
 
         this.state = {
             date: {},
-            endpoint: ''
+            endpoint: '',
+            newSlots: []
         };
 
         this.connectFirebase = this.connectFirebase.bind(this);
+        this.passNewApp = this.passNewApp.bind(this);
     }
 
     componentDidMount() {
@@ -46,12 +49,56 @@ export default class AdminPage extends Component {
     }
 
     render() {
-        return (
-            <div className="admin-page">
-                <h1 className="admin-page-title">Admin Page</h1>
-                {this.state.barbers && this.state.appointments ? _.map(this.state.barbers, barber => <BarberAppointments barber={barber} appointments={this.state.appointments.filter(app => app.barber === barber.id)} key={barber.id} />) : <span />}
-            </div>
-        );
+        return <div className="admin-page">
+            <h1 className="admin-page-title">Admin Page</h1>
+            {this.state.barbers && this.state.appointments ? this.state.barbers.map(
+                barber => (
+                  <BarberAppointments
+                    barber={barber}
+                    appointments={this.state.appointments.filter(
+                      app => {
+                        if (app) {
+                          return app.barber === barber.id;
+                        }
+                      }
+                    )}
+                    key={barber.id}
+                    passNewApp={this.passNewApp}
+                  />
+                )
+              ) : <span />}
+            <NewAppointment newSlots={this.state.newSlots} />
+          </div>;
+    }
+
+    passNewApp(newSlots) {
+        if (newSlots) {
+            const { barberCutTime } = newSlots;
+            let newSlotsArray = [];
+            let amount = newSlots.openSlots;
+            let i = 0;
+            for (i; i < amount; i++) {
+              let starthour = newSlots.gapStartHour;
+              let startminute = newSlots.gapStartMinute + barberCutTime * i;
+              if (startminute >= 60) {
+                  debugger;
+                const removeAmount = Math.floor((startminute / 60));
+                startminute -= 60 * removeAmount;
+                starthour += removeAmount;
+              }
+              let endminute = startminute + barberCutTime;
+              let endhour = starthour;
+              if (endminute >= 60) {
+                const endRA = Math.floor((endminute / 60));
+                endminute -= 60 * endRA;
+                endhour += endRA;
+              }
+              const slot = { starthour, startminute, endhour, endminute };
+              newSlotsArray.push(slot);
+            }
+            debugger;
+            this.setState({ newSlots: newSlotsArray });
+        }
     }
 
     connectFirebase() {
@@ -75,7 +122,7 @@ export default class AdminPage extends Component {
             .ref()
             .child(`barbers`);
           barbersRef.on("value", snap => {
-            let barbers = { ...snap.val() };
+            let barbers = [...snap.val()];
             this.setState({ barbers });
           });
       }
