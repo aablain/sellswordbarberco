@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
 @font-face {
-  font-family: 'Canterbury';
+  font-family: "Canterbury";
   src: url("Canterbury.ttf") format("truetype");
   font-weight: bold;
   font-style: bold; }
@@ -14,18 +14,21 @@
     height: 250px;
     max-height: 250px;
     min-height: 0px;
-    color: #FFFFFF; } }
+    color: #ffffff; } }
 * {
   box-sizing: border-box; }
 
-p, h1, h3 {
+p,
+h1,
+h3 {
   margin: 0px; }
 
 body {
   width: 100%;
   max-width: 100%;
   min-width: 100%; }
-  body, body .container {
+  body,
+  body .container {
     margin: 0px !important;
     padding: 0px !important;
     max-width: initial !important;
@@ -53,7 +56,7 @@ body {
     justify-content: center; }
     @media screen and (max-width: 900px) {
       .home .home-sections {
-        padding: 35px 15px 0px; } }
+        padding: 35px 15px; } }
 
 .header {
   width: 100%;
@@ -63,13 +66,13 @@ body {
   min-height: 300px;
   max-height: 750px;
   background-color: #181818;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-family: 'Canterbury';
+  font-family: "Canterbury";
   font-size: 40px; }
   .header .header-logo {
     max-width: 100%;
@@ -93,21 +96,45 @@ body {
           max-width: 100%; } }
 
 .day-section {
-  padding: 90px 10px;
+  padding: 90px 20px;
   flex-basis: 33.33%;
   width: 33.33%;
   max-width: 33.33%;
   min-width: 33.33%;
-  color: #FFFFFF; }
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box; }
+  .day-section .day-section-icon {
+    flex-basis: 100px;
+    height: 100;
+    width: 100;
+    border-radius: 50%;
+    object-fit: cover; }
   .day-section .day-section-title {
+    padding-left: 20px;
     text-align: center;
     margin: 0px;
-    font-size: 24px; }
+    font-size: 48px;
+    text-transform: capitalize;
+    flex-basis: calc(100% - 100px);
+    width: calc(100% - 100px);
+    max-width: calc(100% - 100px);
+    min-width: calc(100% - 100px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; }
   .day-section .day-section-subtitle {
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     text-align: center;
     margin: 0px;
-    font-size: 22px; }
+    font-size: 22px;
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%; }
   .day-section .day-section-button {
     padding: 6px 12px;
     margin-left: auto;
@@ -118,26 +145,37 @@ body {
     text-align: center;
     display: block;
     border: 1px solid #181818;
-    color: #FFFFFF;
+    color: #ffffff;
     transition: background-color 120ms ease-in-out; }
     .day-section .day-section-button:hover {
       cursor: pointer; }
   .day-section .day-section-schedulicity {
     display: block;
     width: 100%;
-    text-align: center; }
-    .day-section .day-section-schedulicity img {
-      width: 180px; }
-      .day-section .day-section-schedulicity img:hover {
-        opacity: 0.9; }
+    text-align: center;
+    text-decoration: none; }
+    .day-section .day-section-schedulicity img:hover {
+      opacity: 0.9; }
+  .day-section .day-section-btn {
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 180ms ease-in-out; }
+    .day-section .day-section-btn:hover {
+      background-color: rgba(255, 255, 255, 0.25); }
   .day-section.open-for-booking {
     background-color: #181818;
-    color: #FFFFFF; }
+    color: #ffffff; }
     .day-section.open-for-booking .day-section-button {
-      border-color: #FFFFFF;
-      color: #FFFFFF; }
+      border-color: #ffffff;
+      color: #ffffff; }
       .day-section.open-for-booking .day-section-button:hover {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #181818; }
   .day-section.cannot-book .day-section-button {
     border: none;
@@ -152,10 +190,14 @@ body {
       flex-basis: 100%;
       width: 100%;
       max-width: 100%;
-      min-width: 100%; } }
+      min-width: 100%; }
+      .day-section:not(:last-of-type) {
+        padding-bottom: 50px;
+        border-bottom: 2px solid #fff; }
+      .day-section:last-of-type {
+        padding-top: 50px;
+        margin-left: 0px; } }
   @media screen and (max-width: 345px) {
-    .day-section .day-section-title {
-      font-size: 18px; }
     .day-section .day-section-subtitle {
       font-size: 16px; } }
 
@@ -165,7 +207,7 @@ body {
   min-width: 100%;
   max-width: 100%;
   min-height: 250px;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #181818;
   display: flex;
   flex-direction: row;
@@ -198,14 +240,14 @@ body {
   .home-booking-section .booking-button {
     padding: 6px 12px;
     margin: 0px 10px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     border-radius: 4px;
-    color: #FFFFFF; }
+    color: #ffffff; }
     .home-booking-section .booking-button .make-bold {
       padding-left: 4px;
       font-weight: bold; }
     .home-booking-section .booking-button.is-selected {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       color: #181818; }
     .home-booking-section .booking-button:hover {
       cursor: pointer; }
@@ -225,7 +267,7 @@ body {
         padding: 8px;
         margin: 0px 10px 10px;
         font-size: 18px;
-        border: 1px solid #FFFFFF; }
+        border: 1px solid #ffffff; }
         .home-booking-section .booking-inputs-container .booking-input-box .booking-input:focus, .home-booking-section .booking-inputs-container .booking-input-box .booking-input:active {
           outline: none;
           border-color: #646464; }
@@ -258,7 +300,8 @@ body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap; }
-    .home-booking-section .booking-buttons .booking-buttons-save, .home-booking-section .booking-buttons .booking-buttons-cancel {
+    .home-booking-section .booking-buttons .booking-buttons-save,
+    .home-booking-section .booking-buttons .booking-buttons-cancel {
       font-size: 20px;
       padding: 6px 12px;
       margin-left: 10px;
@@ -268,15 +311,16 @@ body {
       min-width: 95px;
       text-align: center;
       display: block;
-      border: 2px solid #FFFFFF;
-      color: #FFFFFF;
+      border: 2px solid #ffffff;
+      color: #ffffff;
       transition: background-color 120ms ease-in-out; }
-      .home-booking-section .booking-buttons .booking-buttons-save:hover, .home-booking-section .booking-buttons .booking-buttons-cancel:hover {
+      .home-booking-section .booking-buttons .booking-buttons-save:hover,
+      .home-booking-section .booking-buttons .booking-buttons-cancel:hover {
         cursor: pointer;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #181818; }
     .home-booking-section .booking-buttons .booking-buttons-save {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       color: #181818; }
       .home-booking-section .booking-buttons .booking-buttons-save.disabled {
         opacity: 0.6; }
@@ -324,10 +368,10 @@ body {
     .booking-barber-schedule .barber-schedule-appointments .barber-schedule-appointment {
       padding: 6px 12px;
       margin: 0px 10px 20px;
-      border: 2px solid #FFFFFF;
+      border: 2px solid #ffffff;
       border-radius: 4px; }
       .booking-barber-schedule .barber-schedule-appointments .barber-schedule-appointment.chosen-appointment {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #181818; }
       .booking-barber-schedule .barber-schedule-appointments .barber-schedule-appointment:hover {
         cursor: pointer; }
@@ -339,7 +383,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  color: #FFFFFF; }
+  color: #ffffff; }
   .bio .bio-about {
     padding: 10px 15px;
     flex-basis: 50%;
@@ -361,7 +405,7 @@ body {
       width: 100%;
       height: 400px; }
     .bio .bio-info .bio-info-text {
-      color: #FFFFFF; }
+      color: #ffffff; }
       .bio .bio-info .bio-info-text a {
         color: inherit;
         text-decoration: none; }
@@ -370,7 +414,8 @@ body {
   .bio .bio-title {
     font-size: 30px; }
   @media screen and (max-width: 900px) {
-    .bio .bio-about, .bio .bio-info {
+    .bio .bio-about,
+    .bio .bio-info {
       flex-basis: 100%;
       width: 100%;
       max-width: 100%;
@@ -388,19 +433,19 @@ body {
   justify-content: space-around;
   width: 100%;
   max-width: 100%;
-  color: #FFFFFF; }
+  color: #ffffff; }
   .admin-page .admin-page-title {
     padding: 40px 0px 60px;
     width: 100%;
     max-width: 100%;
     min-width: 100%;
     text-align: center;
-    font-family: 'Canterbury';
+    font-family: "Canterbury";
     font-size: 50px; }
 
 .barber-appointments-container {
   margin: 0px 5px 50px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   border-radius: 6px;
   padding-bottom: 20px;
   width: 100%;
@@ -488,7 +533,7 @@ body {
       .barber-appointments-container .single-appointment .single-appointment-open-slot-text:hover {
         cursor: pointer;
         color: #181818;
-        background-color: #FFFFFF; }
+        background-color: #ffffff; }
   .barber-appointments-container .barber-appointments-no-apps {
     width: 100%;
     max-width: 100%;

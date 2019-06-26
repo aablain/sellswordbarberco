@@ -7,7 +7,8 @@ type Props = {
   date: Object,
   title: string,
   subtitle: string,
-  buttonLink: string
+  buttonLink: string,
+  accountID: string
 };
 
 type State = {
@@ -15,10 +16,7 @@ type State = {
   btnText: string
 };
 
-export default class Section extends Component<Props, State> {
-  props: Props;
-  state: State;
-
+export default class Section extends Component {
   constructor(props) {
     super(props);
 
@@ -36,37 +34,78 @@ export default class Section extends Component<Props, State> {
   }
 
   render() {
-    return <section className={`day-section${this.state.canBook ? " open-for-booking-asdf" : " cannot-book"}`}>
+    return (
+      <section
+        className={`day-section${
+          this.state.canBook ? " open-for-booking-asdf" : " cannot-book"
+        }`}
+      >
+        <img
+          className="day-section-icon"
+          src={require(`../${this.props.title}.jpg`)}
+          style={{
+            height: 100,
+            width: 100,
+            borderRadius: "50%",
+            objectFit: "cover"
+          }}
+        />
         <h3 className="day-section-title">{this.props.title}</h3>
         <p className="day-section-subtitle">{this.props.subtitle}</p>
-        {this.props.period === 2 ? <a target="_blank" className="day-section-schedulicity" href="https://www.schedulicity.com/scheduling/SBCNW8"><img src={require('../schedulenow_lt_green3_lg.png')} /></a> : <span onClick={this.state && this.state.canBook ? this.updateBookingPeriod : void 0} className="day-section-button">
+        {this.props.period === 2 ? (
+          <a
+            target="_blank"
+            className="day-section-schedulicity"
+            href={`https://www.schedulicity.com/scheduling/${
+              this.props.accountID
+            }`}
+          >
+            {/* <img src={require("../schedulenow_lt_green3_lg.png")} /> */}
+            <p className="day-section-btn">
+              Book with{" "}
+              <span style={{ textTransform: "capitalize" }}>
+                {this.props.title}
+              </span>
+            </p>
+          </a>
+        ) : (
+          <span
+            onClick={
+              this.state && this.state.canBook
+                ? this.updateBookingPeriod
+                : void 0
+            }
+            className="day-section-button"
+          >
             {this.state.canBook ? this.props.btnText : this.props.btnText}
-          </span>}
-      </section>;
+          </span>
+        )}
+      </section>
+    );
   }
 
   checkTime() {
-    if (
-      this.props.date.day !== 0 &&
-      (this.props.date.hour > 7 && this.props.date.hour < 18)
-    ) {
-      if (
-        this.props.period === 1 &&
-        (this.props.date.hour > 7 && this.props.date.hour < 12)
-      ) {
-        this.setState({ canBook: true });
-      } else if (
-        this.props.period === 2 &&
-        (this.props.date.hour > 11 && this.props.date.hour < 15)
-      ) {
-        this.setState({ canBook: true });
-      } else if (
-        this.props.period === 3 &&
-        (this.props.date.hour > 13 && this.props.date.hour < 18)
-      ) {
-        this.setState({ canBook: true });
-      }
-    }
+    // if (
+    //   this.props.date.day !== 0 &&
+    //   (this.props.date.hour > 7 && this.props.date.hour < 18)
+    // ) {
+    //   if (
+    //     this.props.period === 1 &&
+    //     (this.props.date.hour > 7 && this.props.date.hour < 12)
+    //   ) {
+    //     this.setState({ canBook: true });
+    //   } else if (
+    //     this.props.period === 2 &&
+    //     (this.props.date.hour > 11 && this.props.date.hour < 15)
+    //   ) {
+    //     this.setState({ canBook: true });
+    //   } else if (
+    //     this.props.period === 3 &&
+    //     (this.props.date.hour > 13 && this.props.date.hour < 18)
+    //   ) {
+    this.setState({ canBook: true });
+    //   }
+    // }
   }
 
   updateBookingPeriod() {

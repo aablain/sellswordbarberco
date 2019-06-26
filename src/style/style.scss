@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=UnifrakturCook:700");
 
 @font-face {
-  font-family: 'Canterbury';
-  src: url('Canterbury.ttf') format('truetype');
+  font-family: "Canterbury";
+  src: url("Canterbury.ttf") format("truetype");
   font-weight: bold;
   font-style: bold;
 }
@@ -14,15 +14,15 @@ $third-width: 33.33%;
 $max-width: 1250px;
 
 $dark: #181818;
-$light: #FFFFFF;
+$light: #ffffff;
 $grey-dark: #646464;
 
-$font-one: 'Supermercado One', cursive;
-$font-two: 'Rock Salt', cursive;
-$font-three: 'Sedgwick Ave Display', cursive;
-$font-four: 'Romanesco', cursive;
-$font-normal: 'Open Sans', sans-serif;
-$font-title: 'UnifrakturCook', cursive;
+$font-one: "Supermercado One", cursive;
+$font-two: "Rock Salt", cursive;
+$font-three: "Sedgwick Ave Display", cursive;
+$font-four: "Romanesco", cursive;
+$font-normal: "Open Sans", sans-serif;
+$font-title: "UnifrakturCook", cursive;
 
 $small-screen: 900px;
 $tablet: 768px;
@@ -30,597 +30,669 @@ $phone: 500px;
 $tiny-phone: 345px;
 
 @keyframes slideDown {
-    0% { height: 0px; max-height: 0px; min-height: 0px; color: transparent; }
-    100% { height: 250px; max-height: 250px; min-height: 0px; color: $light; }
+  0% {
+    height: 0px;
+    max-height: 0px;
+    min-height: 0px;
+    color: transparent;
+  }
+  100% {
+    height: 250px;
+    max-height: 250px;
+    min-height: 0px;
+    color: $light;
+  }
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-p, h1, h3 {
-    margin: 0px;
+p,
+h1,
+h3 {
+  margin: 0px;
 }
 
 body {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    &, .container {
-        margin: 0px !important;
-        padding: 0px !important;
-        max-width: initial !important;
-        font-family: $font-normal;
-        background-color: $dark;
-    }
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  &,
+  .container {
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: initial !important;
+    font-family: $font-normal;
+    background-color: $dark;
+  }
 }
 
 .App {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: $max-width;
 }
 
-
 .home {
+  width: $full-width;
+  max-width: $full-width;
+  min-width: $full-width;
+  .home-sections {
+    padding: 0px;
     width: $full-width;
     max-width: $full-width;
     min-width: $full-width;
-    .home-sections {
-        padding: 0px;
-        width: $full-width;
-        max-width: $full-width;
-        min-width: $full-width;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        @media screen and (max-width: $small-screen) {
-            padding: 35px 15px 0px;
-        }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media screen and (max-width: $small-screen) {
+      padding: 35px 15px;
     }
+  }
 }
 
 .header {
-    width: $full-width;
-    max-width: $full-width;
-    min-width: $full-width;
-    height: 80vh;
-    min-height: 300px;
-    max-height: 750px;
-    background-color: $dark;
-    color: $light;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Canterbury';
-    font-size: 40px;
-    .header-logo {
+  width: $full-width;
+  max-width: $full-width;
+  min-width: $full-width;
+  height: 80vh;
+  min-height: 300px;
+  max-height: 750px;
+  background-color: $dark;
+  color: $light;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: "Canterbury";
+  font-size: 40px;
+  .header-logo {
+    max-width: 100%;
+    max-width: 100%;
+    height: calc(100% - 111px);
+    max-height: calc(100% - 111px);
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: $phone) {
+    .header-title {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      text-align: center;
+      .title-half {
+        width: 100%;
+        min-width: 100%;
         max-width: 100%;
-        max-width: 100%;
-        height: calc(100% - 111px);
-        max-height: calc(100% - 111px);
+      }
     }
-    @media screen and (max-width: $tablet) {
-        font-size: 30px;
-    }
-    @media screen and (max-width: $phone) {
-        .header-title {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                text-align: center;
-            .title-half {
-                width: 100%;
-                min-width: 100%;
-                max-width: 100%;
-            }
-        }
-        font-size: 30px;
-    }
+    font-size: 30px;
+  }
 }
 
 .day-section {
-    padding: 90px 10px;
-    flex-basis: $third-width;
-    width: $third-width;
-    max-width: $third-width;
-    min-width: $third-width;
-    color: $light;
-    .day-section-title {
-        text-align: center;
-        margin: 0px;
-        font-size: 24px;
-    }
-    .day-section-subtitle {
-        padding-bottom: 15px;
-        text-align: center;
-        margin: 0px;
-        font-size: 22px;
-    }
-    .day-section-button {
-        padding: 6px 12px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 95px;
-        max-width: 95px;
-        min-width: 95px;
-        text-align: center;
-        display: block;
-        border: 1px solid $dark;
-        color: $light;
-        transition: background-color 120ms ease-in-out;
-        &:hover {
-            cursor: pointer;
-            // background-color: $dark;
-            // color: $light;
-        }
-    }
-    .day-section-schedulicity {
-        display: block;
-        width: 100%;
-        text-align: center;
-        img {
-            width: 180px;
-            &:hover {
-                opacity: 0.9;
-            }
-        }
-    }
-    &.open-for-booking {
-        background-color: $dark;
-        color: $light;
-        .day-section-button {
-            border-color: $light;
-            color: $light;
-            &:hover {
-                background-color: $light;
-                color: $dark;
-            }
-        }
-    }
-    &.cannot-book {
-        .day-section-button {
-            border: none;
-            width: 145px;
-            max-width: 145px;
-            min-width: 145px;
-            &:hover {
-                cursor: default;
-            }
-        }
-    }
-    @media screen and (max-width: $small-screen) {
-        padding: 35px 10px;
-        flex-basis: $full-width;
-        width: $full-width;
-        max-width: $full-width;
-        min-width: $full-width;
-    }
-    @media screen and (max-width: $tiny-phone) {
-        .day-section-title {
-            font-size: 18px;
-        }
-        .day-section-subtitle {
-            font-size: 16px;
-        }
-    }
-}
+  padding: 90px 20px;
+  flex-basis: $third-width;
+  width: $third-width;
+  max-width: $third-width;
+  min-width: $third-width;
+  color: $light;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 
-.home-booking-section {
-    padding: 25px 10px;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 250px;
-    color: $light;
-    background-color: $dark;
+  &:last-of-type {
+    // margin-left: 50px;
+  }
+
+  .day-section-icon {
+    flex-basis: 100px;
+    height: 100;
+    width: 100;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .day-section-title {
+    padding-left: 20px;
+    text-align: center;
+    margin: 0px;
+    font-size: 48px;
+    text-transform: capitalize;
+    flex-basis: calc(100% - 100px);
+    width: calc(100% - 100px);
+    max-width: calc(100% - 100px);
+    min-width: calc(100% - 100px);
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    .booking-section-header {
-        flex-basis: 100%;
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        font-size: 30px;
-    }
-    .booking-options {
-        flex-basis: 50%;
-        width: 50%;
-        max-width: 50%;
-        min-width: 50%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        .booking-options-title {
-            padding: 5px 5px 15px;
-            margin: 0px;
-            flex-basis: 100%;
-            width: 100%;
-            max-width: 100%;
-            min-width: 100%;
-            text-align: center;
-            font-size: 20px;
-        }
-        &.barbers {
-
-        }
-    }
-    .booking-button {
-        padding: 6px 12px;
-        margin: 0px 10px;
-        border: 2px solid $light;
-        border-radius: 4px;
-        color: $light;
-        .make-bold {
-            padding-left: 4px;
-            font-weight: bold;
-        }
-        &.is-selected {
-            background-color: $light;
-            color: $dark;
-        }
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .booking-inputs-container {
-        padding: 30px 0px 10px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        .booking-input-box {
-            flex-basis: 50%;
-            width: 50%;
-            min-width: 50%;
-            max-width: 50%;
-            .booking-input-label {
-                margin: 0px;
-            }
-            .booking-input {
-                padding: 8px;
-                margin: 0px 10px 10px;
-                font-size: 18px;
-                border: 1px solid $light;
-                &:focus, &:active {
-                    outline: none;
-                    border-color: $grey-dark;
-                }
-            }
-        }
-        @media screen and (max-width: $tablet) {
-            padding: 30px 5px 10px;
-            .booking-input-box {
-                flex-basis: 100%;
-                width: 100%;
-                min-width: 100%;
-                max-width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .booking-input-label {
-                    font-size: 18px;
-                    width: 100%;
-                    max-width: 450px;
-                }
-                .booking-input {
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 100%;
-                    max-width: 450px;
-                }
-            }
-        }
-    }
-
-    .booking-buttons {
-        padding: 50px 0px;
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        .booking-buttons-save, .booking-buttons-cancel {
-            font-size: 20px;
-            padding: 6px 12px;
-            margin-left: 10px;
-            margin-right: 10px;
-            width: 95px;
-            max-width: 95px;
-            min-width: 95px;
-            text-align: center;
-            display: block;
-            border: 2px solid $light;
-            color: $light;
-            transition: background-color 120ms ease-in-out;
-            &:hover {
-                cursor: pointer;
-                background-color: $light;
-                color: $dark;
-            }
-        }
-        .booking-buttons-save {
-            background-color: $light;
-            color: $dark;
-            &.disabled {
-                opacity: 0.6;
-                &:hover {
-                    cursor: not-allowed;
-                }
-            }
-        }
-    }
-    .confirmation {
-            padding: 20px 0px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            flex-basis: 100%;
-            min-width: 100%;
-            max-width: 100%;
-            height: 110px;
-        }
-        .confirmation-title {
-            text-align: center;
-            width: 100%;
-            flex-basis: 100%;
-            min-width: 100%;
-            max-width: 100%;
-            font-size: 18px;
-        }
-        .confirmation-text {
-            padding-top: 10px;
-            text-align: center;
-            width: 100%;
-            flex-basis: 100%;
-            min-width: 100%;
-            max-width: 100%;
-            font-size: 30px;
-        }
-        @media screen and (max-width: $phone) {
-            .confirmation-text {
-                font-size: 22px;
-            }
-        }
-}
-
-.booking-barber-schedule {
-    padding: 25px 10px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .day-section-subtitle {
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0px;
+    font-size: 22px;
+    flex-basis: 100%;
     width: 100%;
     max-width: 100%;
-    .barber-schedule-appointments {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        .barber-schedule-appointment {
-            padding: 6px 12px;
-            margin: 0px 10px 20px;
-            // flex-basis: 125px;
-            // width: 125px;
-            // max-width: 125px;
-            // min-width: 125px;
-            border: 2px solid $light;
-            border-radius: 4px;
-            &.chosen-appointment {
-                background-color: $light;
-                color: $dark;
-            }
-            &:hover {
-                cursor: pointer;
-            }
-        }
+    min-width: 100%;
+  }
+  .day-section-button {
+    padding: 6px 12px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95px;
+    max-width: 95px;
+    min-width: 95px;
+    text-align: center;
+    display: block;
+    border: 1px solid $dark;
+    color: $light;
+    transition: background-color 120ms ease-in-out;
+    &:hover {
+      cursor: pointer;
+      // background-color: $dark;
+      // color: $light;
     }
-}
+  }
+  .day-section-schedulicity {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    img {
+      //   width: 180px;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
 
-.bio {
+  .day-section-btn {
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 180ms ease-in-out;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  &.open-for-booking {
+    background-color: $dark;
+    color: $light;
+    .day-section-button {
+      border-color: $light;
+      color: $light;
+      &:hover {
+        background-color: $light;
+        color: $dark;
+      }
+    }
+  }
+  &.cannot-book {
+    .day-section-button {
+      border: none;
+      width: 145px;
+      max-width: 145px;
+      min-width: 145px;
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+  @media screen and (max-width: $small-screen) {
+    padding: 35px 10px;
+    flex-basis: $full-width;
     width: $full-width;
     max-width: $full-width;
     min-width: $full-width;
+
+    &:not(:last-of-type) {
+      padding-bottom: 50px;
+      border-bottom: 2px solid #fff;
+    }
+
+    &:last-of-type {
+      padding-top: 50px;
+      margin-left: 0px;
+    }
+  }
+  @media screen and (max-width: $tiny-phone) {
+    .day-section-title {
+      // font-size: 18px;
+    }
+    .day-section-subtitle {
+      font-size: 16px;
+    }
+  }
+}
+
+.home-booking-section {
+  padding: 25px 10px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 250px;
+  color: $light;
+  background-color: $dark;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  .booking-section-header {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    font-size: 30px;
+  }
+  .booking-options {
+    flex-basis: 50%;
+    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .booking-options-title {
+      padding: 5px 5px 15px;
+      margin: 0px;
+      flex-basis: 100%;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      text-align: center;
+      font-size: 20px;
+    }
+    &.barbers {
+    }
+  }
+  .booking-button {
+    padding: 6px 12px;
+    margin: 0px 10px;
+    border: 2px solid $light;
+    border-radius: 4px;
+    color: $light;
+    .make-bold {
+      padding-left: 4px;
+      font-weight: bold;
+    }
+    &.is-selected {
+      background-color: $light;
+      color: $dark;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .booking-inputs-container {
+    padding: 30px 0px 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    color: $light;
-    .bio-about {
-        padding: 10px 15px;
-        flex-basis: $half-width;
-        width: $half-width;
-        max-width: $half-width;
-        min-width: $half-width;
-        .bio-about-text {
-            font-size: 20px;
+    .booking-input-box {
+      flex-basis: 50%;
+      width: 50%;
+      min-width: 50%;
+      max-width: 50%;
+      .booking-input-label {
+        margin: 0px;
+      }
+      .booking-input {
+        padding: 8px;
+        margin: 0px 10px 10px;
+        font-size: 18px;
+        border: 1px solid $light;
+        &:focus,
+        &:active {
+          outline: none;
+          border-color: $grey-dark;
         }
-        .bio-about-image {
-            max-height: 100%;
-            max-width: 100%;
-        }
+      }
     }
+    @media screen and (max-width: $tablet) {
+      padding: 30px 5px 10px;
+      .booking-input-box {
+        flex-basis: 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .booking-input-label {
+          font-size: 18px;
+          width: 100%;
+          max-width: 450px;
+        }
+        .booking-input {
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          max-width: 450px;
+        }
+      }
+    }
+  }
+
+  .booking-buttons {
+    padding: 50px 0px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .booking-buttons-save,
+    .booking-buttons-cancel {
+      font-size: 20px;
+      padding: 6px 12px;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 95px;
+      max-width: 95px;
+      min-width: 95px;
+      text-align: center;
+      display: block;
+      border: 2px solid $light;
+      color: $light;
+      transition: background-color 120ms ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: $light;
+        color: $dark;
+      }
+    }
+    .booking-buttons-save {
+      background-color: $light;
+      color: $dark;
+      &.disabled {
+        opacity: 0.6;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  .confirmation {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-basis: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 110px;
+  }
+  .confirmation-title {
+    text-align: center;
+    width: 100%;
+    flex-basis: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 18px;
+  }
+  .confirmation-text {
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;
+    flex-basis: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 30px;
+  }
+  @media screen and (max-width: $phone) {
+    .confirmation-text {
+      font-size: 22px;
+    }
+  }
+}
+
+.booking-barber-schedule {
+  padding: 25px 10px;
+  width: 100%;
+  max-width: 100%;
+  .barber-schedule-appointments {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .barber-schedule-appointment {
+      padding: 6px 12px;
+      margin: 0px 10px 20px;
+      // flex-basis: 125px;
+      // width: 125px;
+      // max-width: 125px;
+      // min-width: 125px;
+      border: 2px solid $light;
+      border-radius: 4px;
+      &.chosen-appointment {
+        background-color: $light;
+        color: $dark;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.bio {
+  width: $full-width;
+  max-width: $full-width;
+  min-width: $full-width;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: $light;
+  .bio-about {
+    padding: 10px 15px;
+    flex-basis: $half-width;
+    width: $half-width;
+    max-width: $half-width;
+    min-width: $half-width;
+    .bio-about-text {
+      font-size: 20px;
+    }
+    .bio-about-image {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  .bio-info {
+    padding: 10px 15px;
+    flex-basis: $half-width;
+    width: $half-width;
+    max-width: $half-width;
+    min-width: $half-width;
+    .bio-maps-iframe {
+      width: 100%;
+      height: 400px;
+    }
+    .bio-info-text {
+      color: $light;
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .bio-title {
+    font-size: 30px;
+  }
+  @media screen and (max-width: $small-screen) {
+    .bio-about,
     .bio-info {
-        padding: 10px 15px;
-        flex-basis: $half-width;
-        width: $half-width;
-        max-width: $half-width;
-        min-width: $half-width;
-        .bio-maps-iframe {
-            width: 100%;
-            height: 400px;
-        }
-        .bio-info-text {
-            color: $light;
-            a {
-                color: inherit;
-                text-decoration: none;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
+      flex-basis: $full-width;
+      width: $full-width;
+      max-width: $full-width;
+      min-width: $full-width;
     }
-    .bio-title {
-        font-size: 30px;
+    .bio-about {
+      padding-bottom: 35px;
+      .bio-about-image {
+        display: none;
+      }
     }
-    @media screen and (max-width: $small-screen) {
-        .bio-about, .bio-info {
-            flex-basis: $full-width;
-            width: $full-width;
-            max-width: $full-width;
-            min-width: $full-width;
-        }
-        .bio-about {
-            padding-bottom: 35px;
-            .bio-about-image {
-                display: none;
-            }
-        }
-    }
+  }
 }
 
 /* Admin Page Styles */
 .admin-page {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  max-width: $full-width;
+  color: $light;
+  .admin-page-title {
+    padding: 40px 0px 60px;
+    width: $full-width;
     max-width: $full-width;
-    color: $light;
-    .admin-page-title {
-        padding: 40px 0px 60px;
-        width: $full-width;
-        max-width: $full-width;
-        min-width: $full-width;
-        text-align: center;
-        font-family: 'Canterbury';
-        font-size: 50px;
-    }
+    min-width: $full-width;
+    text-align: center;
+    font-family: "Canterbury";
+    font-size: 50px;
+  }
 }
 
 .barber-appointments-container {
-    margin: 0px 5px 50px;
-    border: 2px solid $light;
-    border-radius: 6px;
-    padding-bottom: 20px;
-    width: 100%;
-    max-width: 525px;
-    min-height: 200px;
+  margin: 0px 5px 50px;
+  border: 2px solid $light;
+  border-radius: 6px;
+  padding-bottom: 20px;
+  width: 100%;
+  max-width: 525px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  .barber-appointments-title {
+    margin-top: -16px;
+    margin-bottom: 16px;
+    width: $full-width;
+    max-width: $full-width;
+    min-width: $full-width;
+    text-align: center;
+    font-size: 25px;
+    span {
+      padding: 0px 10px;
+      background-color: $dark;
+    }
+  }
+  .single-appointment {
+    padding: 4px 10px;
+    width: $full-width;
+    min-width: $full-width;
+    max-width: $full-width;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    .barber-appointments-title {
-        margin-top: -16px;
-        margin-bottom: 16px;
-        width: $full-width;
-        max-width: $full-width;
-        min-width: $full-width;
-        text-align: center;
-        font-size: 25px;
-        span {
-            padding: 0px 10px;
-            background-color: $dark;
-        }
+    flex-direction: row;
+    flex-wrap: nowrap;
+    .single-appointment-name,
+    .single-appointment-barber,
+    .single-appointment-start,
+    .single-appointment-end,
+    .single-appointment-phone,
+    .single-appointment-email {
+      flex-basis: 16.66%;
+      width: 16.66%;
+      max-width: 16.66%;
+      min-width: 16.66%;
     }
-    .single-appointment {
-        padding: 4px 10px;
-        width: $full-width;
-        min-width: $full-width;
-        max-width: $full-width;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        .single-appointment-name,
-        .single-appointment-barber,
-        .single-appointment-start,
-        .single-appointment-end,
-        .single-appointment-phone,
-        .single-appointment-email {
-            flex-basis: 16.66%;
-            width: 16.66%;
-            max-width: 16.66%;
-            min-width: 16.66%;
+    .single-appointment-name {
+      flex-basis: 200px;
+      width: 200px;
+      max-width: 200px;
+      min-width: 200px;
+    }
+    .single-appointment-barber {
+    }
+    .single-appointment-start {
+      flex-basis: 55px;
+      width: 55px;
+      max-width: 55px;
+      min-width: 55px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .single-appointment-end {
+      flex-basis: 55px;
+      width: 55px;
+      max-width: 55px;
+      min-width: 55px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .single-appointment-phone {
+      padding: 0px 4px;
+      flex-basis: calc(100% - 310px);
+      width: calc(100% - 310px);
+      max-width: calc(100% - 310px);
+      min-width: 100px;
+      text-align: right;
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
         }
-        .single-appointment-name {
-            flex-basis: 200px;
-            width: 200px;
-            max-width: 200px;
-            min-width: 200px;
-        }
-        .single-appointment-barber {
+      }
+    }
+    .single-appointment-email {
+      flex-basis: 155px;
+      width: 155px;
+      max-width: 155px;
+      min-width: 155px;
+    }
 
-        }
-        .single-appointment-start {
-            flex-basis: 55px;
-            width: 55px;
-            max-width: 55px;
-            min-width: 55px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-        }
-        .single-appointment-end {
-            flex-basis: 55px;
-            width: 55px;
-            max-width: 55px;
-            min-width: 55px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-        }
-        .single-appointment-phone {
-            padding: 0px 4px;
-            flex-basis: calc(100% - 310px);
-            width: calc(100% - 310px);
-            max-width: calc(100% - 310px);
-            min-width: 100px;
-            text-align: right;
-            a {
-                color: inherit;
-                text-decoration: none;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-        .single-appointment-email {
-            flex-basis: 155px;
-            width: 155px;
-            max-width: 155px;
-            min-width: 155px;
-        }
-
-        .single-appointment-open-slot-text {
-            padding: 4px 0px;
-            width: 100%;
-            max-width: 100%;
-            min-width: 100%;
-            text-align: center;
-            border-radius: 3px;
-            background-color: rgba(255, 255, 255, 0.3);
-            transition: background-color 120ms ease-in-out;
-            &:hover {
-                cursor: pointer;
-                color: $dark;
-                background-color: $light;
-            }
-        }
+    .single-appointment-open-slot-text {
+      padding: 4px 0px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      text-align: center;
+      border-radius: 3px;
+      background-color: rgba(255, 255, 255, 0.3);
+      transition: background-color 120ms ease-in-out;
+      &:hover {
+        cursor: pointer;
+        color: $dark;
+        background-color: $light;
+      }
     }
-    .barber-appointments-no-apps {
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        text-align: center;
-        opacity: 0.25;
-    }
-    @media screen and (max-width: $small-screen) {
-        max-width: $full-width;
-    }
+  }
+  .barber-appointments-no-apps {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    text-align: center;
+    opacity: 0.25;
+  }
+  @media screen and (max-width: $small-screen) {
+    max-width: $full-width;
+  }
 }
